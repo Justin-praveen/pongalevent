@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import ARExample from './ARExample';
 import db from './firebase/firebase';
 import { collection , doc, getDoc,onSnapshot} from 'firebase/firestore';
+import Img from './componets/Img';
+import Img1 from './componets/Img1';
+import Img2 from './componets/Img2';
+import Img3 from './componets/Img3';
 
 
 const App = () => {
@@ -17,7 +21,7 @@ const App = () => {
 
     const changedata = doc.data()
 
-    setevent(changedata.image)
+    setevent(parseInt(changedata.image))
     console.log(event)
   })
   })()
@@ -26,8 +30,11 @@ const App = () => {
 
  return (
     <div>
-      <h1>PONGAL EVENT</h1>
-  <h1>{event}</h1>
+{event === 0 && <Img/>} 
+{event === 1 && <Img1/>}  
+{event === 2 && <Img2/>}  
+{event === 3 && <Img3/>}  
+
     </div>
   );
 };
